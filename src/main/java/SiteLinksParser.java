@@ -14,16 +14,15 @@ public class SiteLinksParser {
 
         for (Element link : links) {
             String hrefUrl = link.attr("href");
-            if (!"#".equals(hrefUrl) && !hrefUrl.isEmpty()) {
+            if (!hrefUrl.contains("#") && !hrefUrl.isEmpty() && !hrefUrl.contains("tel") && !hrefUrl.contains("@")) {
                 System.out.println(hrefUrl);
                 Elements linksInternal = getElements(hrefUrl, "Total internal links : ");
-                for (Element linkInternal : linksInternal) {
-                    String hrefInternalUrl = linkInternal.attr("href");
-                    if (!"#".equals(hrefInternalUrl) && !hrefInternalUrl.isEmpty()) {
-                        System.out.println(hrefInternalUrl);
-                    }
-
-                }
+//                for (Element linkInternal : linksInternal) {
+//                    String hrefInternalUrl = linkInternal.attr("href");
+//                    if (!hrefUrl.contains("#") && !hrefUrl.contains("tel") && !hrefUrl.contains("@") && !hrefUrl.isEmpty()) {
+//                        System.out.println(hrefInternalUrl);
+//                    }
+//                }
             }
         }
 
